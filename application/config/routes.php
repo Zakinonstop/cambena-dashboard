@@ -52,3 +52,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 $route['default_controller'] = 'dashboard';
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
+
+$route['api/getModel'] = 'Model/getModel';
+$route['api/getJenisPakaian'] = 'JenisPakaian/getJenisPakaian';
+$route['api/getJenisKain'] = 'JenisKain/getJenisKain';
+$route['api/getUkuran'] = 'Ukuran/getUkuran';
+$route['api/getWarna'] = 'Warna/getWarna';
+$route['api/getKeterangan'] = 'Keterangan/getKeterangan';

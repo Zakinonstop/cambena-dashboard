@@ -19,7 +19,6 @@
                 <thead>
                     <tr>
                         <th class="text-center">No</th>
-                        <th>Kode Pesanan</th>
                         <th>Nama Pemesan</th>
                         <th>Alamat</th>
                         <th>No Hp</th>
@@ -34,7 +33,6 @@
                         foreach ($pemesan as $key => $value) { ?>
                         <tr>
                             <td class="td-center"><?= $no++ ?></td>
-                            <td><?= $value->no_nota ?></td>
                             <td><?= $value->nama ?></td>
                             <td><?= $value->alamat ?></td>
                             <td><?= $value->no_hp ?></td>

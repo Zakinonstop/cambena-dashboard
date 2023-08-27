@@ -23,8 +23,13 @@
                         <th>Nama</th>
                         <th>Alamat</th>
                         <th>No Hp</th>
-                        <th>Tgl Masuk</th>
-                        <th>Tgl Keluar</th>
+                        <th>Model</th>
+                        <th>Jenis Pakaian</th>
+                        <th>Jenis Kain</th>
+                        <th>Ukuran</th>
+                        <th>Warna</th>
+                        <th>Keterangan</th>
+                        <th>Mockup</th>
                         <th>Aksi</th>
                     </tr>
                 </thead>
@@ -34,12 +39,17 @@
                         foreach ($pesanan as $key => $value) { ?>
                         <tr>
                             <td class="td-center"><?= $no++ ?></td>
-                            <td><?= $value->id_pemesan ?></td>
-                            <td><?= $value->id_model ?></td>
-                            <td><?= $value->id_jenis_kain ?></td>
-                            <td><?= $value->id_jenis_pakaian ?></td>
-                            <td><?= $value->id_ukuran ?></td>
-                            <td><?= $value->id_warna ?></td>
+                            <td><?= $value->no_nota ?></td>
+                            <td><?= $value->nama_pemesan ?></td>
+                            <td><?= $value->alamat ?></td>
+                            <td><?= $value->no_hp ?></td>
+                            <td><?= $value->nama_model ?></td>
+                            <td><?= $value->nama_jenis_pakaian ?></td>
+                            <td><?= $value->nama_jenis_kain ?></td>
+                            <td><?= $value->nama_ukuran ?></td>
+                            <td><?= $value->nama_warna ?></td>
+                            <td><?= $value->nama_keterangan ?></td>
+                            <td><?= $value->foto ?></td>
                             <td class="text-center">
                                 <button class="btn btn-danger btn-sm" onclick="remove(<?= $value->id ?>)">Hapus</button>
                                 <button class="btn btn-warning btn-sm" onclick="showFormEditpesanan(<?= $value->id ?>)">Edit</button>
