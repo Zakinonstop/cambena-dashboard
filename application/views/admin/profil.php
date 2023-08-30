@@ -3,55 +3,100 @@
         text-align: center;
     }
 </style>
-<div class="card card-secondary">
-    <div class="card-header">
-        <?php if (isset($judul)) { echo $judul; }  ?>
+
+<div class="row">
+    <!-- <div class="col-lg-4 mb-4 order-0">
+        <div class="card">
+            <div class="d-flex align-items-end row">
+                <div class="col-sm-7">
+                <div class="card-body">
+                    <h5 class="card-title text-primary">Congratulations John! 🎉</h5>
+                    <p class="mb-4">
+                    You have done <span class="fw-bold">72%</span> more sales today. Check your new badge in
+                    your profile.
+                    </p>
+
+                    <a href="javascript:;" class="btn btn-sm btn-outline-primary">View Badges</a>
+                </div>
+                </div>
+                <div class="col-sm-5 text-center text-sm-left">
+                <div class="card-body pb-0 px-0 px-md-4">
+                    <img src="../assets/img/illustrations/man-with-laptop-light.png" height="140" alt="View Badge User" data-app-dark-img="illustrations/man-with-laptop-dark.png" data-app-light-img="illustrations/man-with-laptop-light.png">
+                </div>
+                </div>
+            </div>
+        </div>
+    </div> -->
+
+    <div class="col-md-4 col-lg-4">
+        <h6 class="mt-2 text-muted">Images</h6>
+        <div class="card mb-4">
+        <img class="card-img-top" src="../assets/img/elements/5.jpg" alt="Card image cap">
+        <div class="card-body">
+            <p class="card-text">
+            Some quick example text to build on the card title and make up the bulk of the card's content.
+            </p>
+            <p class="card-text">
+            Cookie topping caramels jujubes gingerbread. Lollipop apple pie cupcake candy canes cookie ice
+            cream. Wafer chocolate bar carrot cake jelly-o.
+            </p>
+        </div>
+        </div>
     </div>
-    <div class="row card-body">
-        <div class="col-12">
-            <button class="btn btn-success" onclick="showFormAddprofil()">Tambah profil</button>
+
+    <div class="col-lg-8 col-md-8 order-1">
+        <div class="card card-secondary">
+            <div class="card-header">
+                <?php if (isset($judul)) { echo $judul; }  ?>
+            </div>
+
+
+            <div class="row card-body">
+                <div class="col-12">
+                    <!-- <button class="btn btn-success" onclick="showFormAddprofil()">Tambah profil</button> -->
+                </div>
+
+                <div class="col-lg-12 table-responsive mt-4">
+                    <table id="profilTable" class="table table-striped display" style="width:100%">
+                        <thead>
+                            <tr>
+                                <th class="text-center">No</th>
+                                <th>Nama</th>
+                                <th>No. Hp</th>
+                                <th>Alamat</th>
+                                <!-- <th>Foto</th> -->
+                                <th class="text-center">Aksi</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <?php
+                            $no = 1;
+                                foreach ($profil as $key => $value) { ?>
+                                <tr>
+                                    <td class="td-center"><?= $no++ ?></td>
+                                    <td><?= $value->nama ?></td>
+                                    <td><?= $value->no_hp ?></td>
+                                    <td><?= $value->alamat ?></td>
+                                    <!-- <td><?= $value->foto ?></td> -->
+                                    <td class="text-center">
+                                        <!-- <button class="btn btn-danger btn-sm" onclick="remove(<?= $value->id ?>)">Hapus</button> -->
+                                        <button class="btn btn-warning btn-sm" onclick="showFormEditprofil(<?= $value->id ?>)">Edit</button>
+                                    </td>
+                                </tr>
+                            <?php } ?>
+                        </tbody>
+                    </table>
+                    
+                </div>
+            </div>              
         </div>
-        <div class="col-lg-12 table-responsive mt-4">
-            <table id="profilTable" class="table table-striped display" style="width:100%">
-                <thead>
-                    <tr>
-                        <th class="text-center">No</th>
-                        <th>Nama</th>
-                        <th>No. Hp</th>
-                        <th>Alamat</th>
-                        <th>Foto</th>
-                        <th class="text-center">Aksi</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <?php
-                    $no = 1;
-                        foreach ($profil as $key => $value) { ?>
-                        <tr>
-                            <td class="td-center"><?= $no++ ?></td>
-                            <td><?= $value->nama ?></td>
-                            <td><?= $value->no_hp ?></td>
-                            <td><?= $value->alamat ?></td>
-                            <td><?= $value->foto ?></td>
-                            <td class="text-center">
-                                <button class="btn btn-danger btn-sm" onclick="remove(<?= $value->id ?>)">Hapus</button>
-                                <button class="btn btn-warning btn-sm" onclick="showFormEditprofil(<?= $value->id ?>)">Edit</button>
-                            </td>
-                        </tr>
-                    <?php } ?>
-                    <div class="col-md-12 box-foto">
-                        <label>Gambar</label>
-                        <input type="file" id="foto" name="foto" class="dropify" data-allowed-file-extensions="jpg jpeg png">
-                    </div>
-                </tbody>
-            </table>
-            
-        </div>
-    </div>              
+    </div>
 </div>
 
+
+
 <!-- Modal form profil-->
-    <div class="modal fade" id="profilModal" tabindex="-1" role="dialog" aria-labelledby="profilModalLabel" aria-hidden="true">
+    <!-- <div class="modal fade" id="profilModal" tabindex="-1" role="dialog" aria-labelledby="profilModalLabel" aria-hidden="true">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
             <div class="modal-header">
@@ -99,8 +144,54 @@
             </div>
             </div>
         </div>
-    </div>
+    </div> -->
 <!-- end modal form profil  -->
+
+<!-- Modal form jenisKain-->
+    <div class="mt-3">
+        <!-- Modal -->
+        <div class="modal fade" id="profilModal" tabindex="-1" style="display: none;" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                <h5 class="modal-title form-profil-title" id="exampleModalLabel1">Modal title</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="formProfil" action="<?= base_url('api/addprofil'); ?>" method="post" enctype="multipart/form-data">
+                         <input hidden type="text" class="form-control" id="id" name="id">
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="form-group">
+                                <label for="nama">Nama</label>
+                                <input type="text" class="form-control" id="nama" name="nama">
+                            </div>
+                            <div class="form-group">
+                                <label for="noHp">No.Hp</label>
+                                <input type="text" class="form-control" id="noHp" name="no_hp">
+                            </div>
+                            <div class="form-group">
+                                <label for="alamat">Alamat</label>
+                                <input type="text" class="form-control" id="alamat" name="alamat">
+                            </div>
+                            <div class="col-md-12 box-foto">
+                                <label>Gambar</label>
+                                <input type="file" id="foto" name="foto" class="dropify" data-allowed-file-extensions="jpg jpeg png">
+                            </div>
+                        </div>
+                    </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-submit btn-primary" onclick="create()" style="display: none">Simpan</button>
+                    <button type="button" class="btn btn-primary btn-update me-2" onclick="update()" style="display: block">Update</button>
+                </div>
+            </div>
+            </div>
+        </div>
+    </div>
+<!-- end modal form jenisKain  -->
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Dropify/0.2.2/js/dropify.min.js" integrity="sha512-8QFTrG0oeOiyWo/VM9Y8kgxdlCryqhIxVeRpWSezdRRAvarxVtwLnGroJgnVW9/XBRduxO/z1GblzPrMQoeuew==" crossorigin="anonymous"></script>
 
@@ -247,10 +338,10 @@
                 $("#formProfil #noHp").val(response.no_hp);
                 $("#formProfil #foto").val(response.foto);
 
-                $("#formProfil .btn-submit").css("display", "none");
-                $("#formProfil .btn-close").css("display", "none");
-                $("#formProfil .btn-update").css("display", "block");
-                $("#formProfil .btn-cancel").css("display", "block");
+                $(".btn-submit").css("display", "none");
+                $(".btn-close").css("display", "none");
+                $(".btn-update").css("display", "block");
+                $(".btn-cancel").css("display", "block");
             },
             error: function(xhr, status, error) {
                 console.error(xhr.responseText);

@@ -59,3 +59,6 @@ $route['api/getJenisKain'] = 'JenisKain/getJenisKain';
 $route['api/getUkuran'] = 'Ukuran/getUkuran';
 $route['api/getWarna'] = 'Warna/getWarna';
 $route['api/getKeterangan'] = 'Keterangan/getKeterangan';
+$route['api/getProvinsi'] = 'Order/getProvinsi';
+$route['api/getKota'] = 'Order/getKota';
+$route['api/getOngkir'] = 'Order/getOngkir';

@@ -125,7 +125,7 @@ class Profil extends CI_Controller {
         //jika ada fotonya
         if(isset($_FILES['foto'])) { 
             $no_foto = $this->input->post('no_foto');
-            $profil = $this->ProfilModel->find($id);  
+            $profil = $this->ProfilModel->getProfilById($id)->row();  
             $nama_foto = $profil->foto;
             $file_path = '../upload/profil/img/'. $nama_foto;
             
