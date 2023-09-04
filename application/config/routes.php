@@ -62,3 +62,5 @@ $route['api/getKeterangan'] = 'Keterangan/getKeterangan';
 $route['api/getProvinsi'] = 'Order/getProvinsi';
 $route['api/getKota'] = 'Order/getKota';
 $route['api/getOngkir'] = 'Order/getOngkir';
+
+$route['register'] = 'Auth/register';

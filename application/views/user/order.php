@@ -8,63 +8,63 @@
             <small class="text-light fw-semibold">Pilih Model</small> 
             <div class="mb-3"> 
                 <select id="box-model" name="id_model" class="form-select">
-                    <!-- <option>Default select</option> -->
+                    <option>-- Pilih Model --</option>
                 </select>
             </div>
 
             <small class="text-light fw-semibold">Pilih Jenis Pakaian</small> 
             <div class="mb-3"> 
                 <select id="box-jenis_pakaian" name="id_jenis_pakaian" class="form-select">
-                    <!-- <option>Default select</option> -->
+                    <option>-- Pilih Jenis Pakaian --</option>
                 </select>
             </div>
 
             <small class="text-light fw-semibold">Pilih Jenis kain</small> 
             <div class="mb-3"> 
                 <select id="box-jenis_kain" name="id_jenis_kain" class="form-select">
-                    <!-- <option>Default select</option> -->
+                    <option>-- Pilih Jenis Kain --</option>
                 </select>
             </div>
 
             <small class="text-light fw-semibold">Pilih Ukuran</small> 
             <div class="mb-3"> 
                 <select id="box-ukuran" name="id_ukuran" class="form-select">
-                    <!-- <option>Default select</option> -->
+                    <option>-- Pilih Ukuran --</option>
                 </select>
             </div>
 
             <small class="text-light fw-semibold">Pilih Warna</small> 
             <div class="mb-3"> 
                 <select id="box-warna" name="id_warna" class="form-select">
-                    <!-- <option>Default select</option> -->
+                    <option>-- Pilih Warna --</option>
                 </select>
             </div>
 
             <small class="text-light fw-semibold">Pilih Keterangan</small> 
             <div class="mb-3"> 
                 <select id="box-keterangan" name="id_keterangan" class="form-select">
-                    <!-- <option>Default select</option> -->
+                    <option>-- Pilih Keterangan --</option>
                 </select>
             </div>
 
             <h6>Pengiriman</h6>
             <small class="text-light fw-semibold">Provinsi</small> 
             <div class="mb-3"> 
-                <select id="box-provinsi" name="id_provinsi" class="form-select">
+                <select id="box-provinsi" name="provinsi" class="form-select">
                     <option>-- Pilih Provinsi --</option>
                 </select>
             </div>
 
             <small class="text-light fw-semibold">Kota/Kabupaten</small> 
             <div class="mb-3"> 
-                <select id="box-kota" name="id_kota" class="form-select">
+                <select id="box-kota" name="kota" class="form-select">
                     <option>-- Pilih Kota/Kabupaten --</option>
                 </select>
             </div>
 
             <small class="text-light fw-semibold">Kurir</small> 
             <div class="mb-3"> 
-                <select id="box-kurir" name="id_kurir" class="form-select">
+                <select id="box-kurir" name="kurir" class="form-select">
                     <option>-- Pilih Kurir --</option>
                     <option value="jne">JNE</option>
                     <option value="pos">POS</option>
@@ -82,14 +82,19 @@
             <small class="text-light fw-semibold">Ongkir</small> 
             <div class="mb-3"> 
                 <div class="input-group input-group-merge">
-                    <p id="box-ongkir">1200</p>
+                    <select id="box-ongkir" name="ongkir" class="form-select">
+                        
+                    </select>
                 </div>
             </div>
 
             <div class="box-hidden">
-                <input type="text" class="form-control" name="destination_id" id="destination_id">
-                <input type="text" class="form-control" name="kurir" id="kurir">
-                <input type="text" class="form-control hidden-berat" name="berat" id="berat">
+                <input type="hidden" class="form-control" name="destination_id" id="destination_id">
+                <input type="hidden" class="form-control" name="kurir" id="kurir">
+                <input type="hidden" class="form-control hidden-berat" name="berat" id="berat">
+
+                <input type="text" class="form-control" name="hidden_provinsi" id="hidden_provinsi" style="display: none;">
+                <input type="text" class="form-control" name="hidden_kota" id="hidden_kota" style="display: none;">
             </div>
         </form>
     </div>
@@ -250,7 +255,7 @@
                     console.log(result);
                     $.each(result.rajaongkir.results, function (index, value) {
                         $('#box-provinsi').append(`
-                            <option value="${value.province_id}">${value.province}</option>
+                            <option value="${value.province_id}" data-provinsi="${value.province}">${value.province}</option>
                         `)
                     })
 
@@ -258,6 +263,9 @@
                         var province_id = this.value;
                         var prov = parseInt(province_id);
                         getKota(prov);
+                        
+                        var data_provinsi = $(this).find(':selected').data("provinsi");
+                        $('#hidden_provinsi').val(data_provinsi)
                     } )
 
             },
@@ -279,7 +287,7 @@
                     $('#box-kota').html('')
                     $.each(result.rajaongkir.results, function (index, value) {
                         $('#box-kota').append(`
-                            <option value="${value.city_id}">${value.city_name}</option>
+                            <option value="${value.city_id}" data-kota="${value.city_name}">${value.city_name}</option>
                         `)
                     })
 
@@ -288,6 +296,9 @@
                         var destination_id = parseInt(kota);
                         // getOngkir(destination_id);
                         $('#destination_id').val(destination_id);
+                        
+                        var data_kota = $(this).find(':selected').data("kota");
+                        $('#hidden_kota').val(data_kota);
                     } )
             },
             error: function(jqXHR, textStatus, errorThrown) {
@@ -306,8 +317,14 @@
                     kurir: kurir,
             },
             success: function(result) {
-                    console.log(result);
-                    $('#box-ongkir').html('muncul')
+                    console.log(result.rajaongkir.results[0].costs);
+                    // $('#box-ongkir').html(result.rajaongkir.results[0].costs);
+
+                    $.each(result.rajaongkir.results[0].costs, function (index, value) {
+                        $('#box-ongkir').append(`
+                            <option value="${value.cost[0].value}">${value.description} - ${value.cost[0].value}</option>
+                        `)
+                    })
             },
             error: function(jqXHR, textStatus, errorThrown) {
                 toastr.error('Terjadi masalah saat pengambilan data.', 'Kesalahan', opsi_toastr);
@@ -329,6 +346,7 @@
     function create() {
         event.preventDefault();
         var formData = new FormData($('#formOrder')[0]);
+        console.log(formData);
 
         $.ajax({
             url: '<?= base_url("order/create"); ?>',

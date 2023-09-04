@@ -170,9 +170,13 @@ class Order extends CI_Controller {
             'id_model' => $this->input->post('id_model'),
             'id_jenis_pakaian' => $this->input->post('id_jenis_pakaian'),
             'id_jenis_kain' => $this->input->post('id_jenis_kain'),
-'id_ukuran' => $this->input->post('id_ukuran'),
-'id_warna' => $this->input->post('id_warna'),
-'id_keterangan' => $this->input->post('id_keterangan'),
+            'id_ukuran' => $this->input->post('id_ukuran'),
+            'id_warna' => $this->input->post('id_warna'),
+            'id_keterangan' => $this->input->post('id_keterangan'),
+            'provinsi' => $this->input->post('hidden_provinsi'),
+            'kota' => $this->input->post('hidden_kota'),
+            'ongkir' => $this->input->post('ongkir'),
+            'berat' => $this->input->post('berat'),
         ];
         
         $result = $this->OrderModel->create($data);
@@ -242,6 +246,10 @@ class Order extends CI_Controller {
                     'id_ukuran' => $this->input->post('id_ukuran'),
                     'id_warna' => $this->input->post('id_warna'),
                     'id_keterangan' => $this->input->post('id_keterangan'),
+                    'provinsi' => $this->input->post('hidden_provinsi'),
+                    'kota' => $this->input->post('hidden_kota'),
+                    'ongkir' => $this->input->post('ongkir'),
+                    'berat' => $this->input->post('berat'),
                     'foto' => $uniq_name,
                 ];
                 
@@ -270,6 +278,10 @@ class Order extends CI_Controller {
                         'id_ukuran' => $this->input->post('id_ukuran'),
                         'id_warna' => $this->input->post('id_warna'),
                         'id_keterangan' => $this->input->post('id_keterangan'),
+                        'provinsi' => $this->input->post('hidden_provinsi'),
+                        'kota' => $this->input->post('hidden_kota'),
+                        'ongkir' => $this->input->post('ongkir'),
+                        'berat' => $this->input->post('berat'),
                         'foto' => '',
                     ];
                     
@@ -288,6 +300,10 @@ class Order extends CI_Controller {
                         'id_ukuran' => $this->input->post('id_ukuran'),
                         'id_warna' => $this->input->post('id_warna'),
                         'id_keterangan' => $this->input->post('id_keterangan'),
+                        'provinsi' => $this->input->post('hidden_provinsi'),
+                        'kota' => $this->input->post('hidden_kota'),
+                        'ongkir' => $this->input->post('ongkir'),
+                        'berat' => $this->input->post('berat'),
                     ];
                     
                 }
@@ -301,6 +317,10 @@ class Order extends CI_Controller {
                 'id_ukuran' => $this->input->post('id_ukuran'),
                 'id_warna' => $this->input->post('id_warna'),
                 'id_keterangan' => $this->input->post('id_keterangan'),
+                'provinsi' => $this->input->post('provinsi'),
+                'kota' => $this->input->post('kota'),
+                'ongkir' => $this->input->post('ongkir'),
+                'berat' => $this->input->post('berat'),
             ];
         }
 
