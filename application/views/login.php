@@ -28,7 +28,7 @@
       content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0"
     />
 
-    <title>Register</title>
+    <title>Login</title>
 
     <meta name="description" content="" />
 
@@ -132,15 +132,11 @@
                       </g>
                     </svg>
                   </span>
-                  <span class="app-brand-text demo text-body fw-bolder">Daftar</span>
+                  <span class="app-brand-text demo text-body fw-bolder">Masuk</span>
                 </a>
               </div>
 
-              <form id="formAuthentication" class="mb-3" method="POST">
-                <!-- <div class="mb-3">
-                  <label for="username" class="form-label">Username</label>
-                  <input type="text" class="form-control" id="username" name="username" placeholder="Enter your username" autofocus />
-                </div> -->
+              <form id="formLogin" class="mb-3" method="POST" action="<?= base_url('api/login')?>">
                 <div class="mb-3">
                   <label for="email" class="form-label">Email</label>
                   <input type="text" class="form-control" id="email" name="email" placeholder="Enter your email" />
@@ -152,13 +148,13 @@
                     <span class="input-group-text cursor-pointer"><i class="bx bx-hide"></i></span>
                   </div>
                 </div>
-                <button class="btn btn-primary d-grid w-100 mt-4" onclick="daftar()">Daftar</button>
+                <button type="submit" class="btn btn-primary d-grid w-100 mt-4">Masuk</button>
               </form>
 
               <p class="text-center">
-                <span>Sudah mempunyai akun?</span>
+                <span>Belum mempunyai akun?</span>
                 <a href="auth-login-basic.html">
-                  <span>Masuk</span>
+                  <span>Daftar</span>
                 </a>
               </p>
             </div>
@@ -198,5 +194,27 @@
 
     <!-- Place this tag in your head or just before your close body tag. -->
     <script async defer src="https://buttons.github.io/buttons.js"></script>
+    <script>
+        $(document).ready(function() {
+           
+        })
+
+        // function login() {
+        //     var formData = new FormData($('#formLogin')[0]);
+        //     $.ajax({
+        //        url: "<?= base_url('api/login') ?>",
+        //        type: "post",
+        //        data: formData,
+        //        dataType: "JSON",
+        //        success: function(data) {
+        //               console.log(data);
+        //           },
+        //        error: function(jqXHR, textStatus, errorThrown) {
+        //               toastr.error('Terjadi masalah saat pengambilan data.', 'Kesalahan', opsi_toastr);
+        //           }
+        //     });
+        // }
+
+    </script>
   </body>
 </html>

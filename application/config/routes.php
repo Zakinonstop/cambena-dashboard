@@ -63,4 +63,10 @@ $route['api/getProvinsi'] = 'Order/getProvinsi';
 $route['api/getKota'] = 'Order/getKota';
 $route['api/getOngkir'] = 'Order/getOngkir';
 
+$route['api/login'] = 'Auth/postLogin';
+
 $route['register'] = 'Auth/register';
+$route['login'] = 'Auth/login';
+$route['logout'] = 'Auth/logout';
+
+

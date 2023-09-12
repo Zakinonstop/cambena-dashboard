@@ -16,8 +16,11 @@ class Order extends CI_Controller {
 
 	public function index()
 	{
+        $id_pemesan = $this->session->userdata['id'];
         $data = [
             'content' => 'user/order',
+            'list_order' => $this->OrderModel->getOrderById($id_pemesan)->result(),
+            'total_harga' => $this->OrderModel->totalHarga($id_pemesan)->row(),
         ];
 		$this->load->view('layout_user', $data);
 	}
@@ -166,16 +169,25 @@ class Order extends CI_Controller {
 
     public function create()
     {
+        $jumlah = $this->input->post('jumlah');
+        $harga = $jumlah * 55000;
+        $ongkir = $harga + $this->input->post('ongkir');
+        $total = $harga + $ongkir;
         $data = [
+            'no_nota' => rand(),
+            'id_pemesan' => $this->input->post('id_pemesan'),
             'id_model' => $this->input->post('id_model'),
             'id_jenis_pakaian' => $this->input->post('id_jenis_pakaian'),
             'id_jenis_kain' => $this->input->post('id_jenis_kain'),
             'id_ukuran' => $this->input->post('id_ukuran'),
             'id_warna' => $this->input->post('id_warna'),
             'id_keterangan' => $this->input->post('id_keterangan'),
+            'jumlah' => $this->input->post('jumlah'),
+            'harga' => $harga,
             'provinsi' => $this->input->post('hidden_provinsi'),
             'kota' => $this->input->post('hidden_kota'),
             'ongkir' => $this->input->post('ongkir'),
+            'total' => $total,
             'berat' => $this->input->post('berat'),
         ];
         

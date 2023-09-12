@@ -10,6 +10,16 @@ class OrderModel extends CI_Model
     // protected $table_fk = 'kategori';
     // protected $table_fk_id = 'id_kategori';
 
+    function getOrderById($id_pemesan)
+    {
+        return $this->db->get_where($this->table, ['id_pemesan' => $id_pemesan]);    
+    }
+    function totalHarga($id_pemesan)
+    {
+        $query = $this->db->query('SELECT SUM(harga) AS total_harga FROM (SELECT harga FROM `pesanan` WHERE id_pemesan = 1) AS subquery;');
+        return $query;    
+    }
+
 	public function getOrder()
 	{
         $this->db->join('pemesan', 'pemesan.id = pesanan.id_pemesan');
@@ -43,11 +53,11 @@ class OrderModel extends CI_Model
         return $this->db->insert($this->table, $data);    
     }
 
-    function getOrderById($id)
-    {
-        $this->db->where($this->primary_key, $id);
-        return $this->db->get($this->table);
-    }
+    // function getOrderById($id)
+    // {
+    //     $this->db->where($this->primary_key, $id);
+    //     return $this->db->get($this->table);
+    // }
 
     function update($id, $data)
     {
