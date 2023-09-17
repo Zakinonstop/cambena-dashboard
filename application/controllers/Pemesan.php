@@ -7,6 +7,7 @@ class Pemesan extends CI_Controller {
     {
         parent::__construct();
         $this->load->model('PemesanModel');
+        $this->load->model('PesananModel');
         // if (isset($_SESSION['username'])) { } else {
         //     redirect('start');
         // }
@@ -17,6 +18,7 @@ class Pemesan extends CI_Controller {
         $data = [
             'content' => 'admin/pemesan',
             'pemesan' => $this->PemesanModel->getPemesan(),
+            'pesanan' => $this->PesananModel->getPesanan(),
         ];
 		$this->load->view('layout_admin', $data);
 	}

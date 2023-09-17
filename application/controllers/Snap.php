@@ -26,6 +26,7 @@ class Snap extends CI_Controller {
 		$this->load->library('midtrans');
 		$this->midtrans->config($params);
 		$this->load->helper('url');	
+		$this->load->model('OrderModel');	
     }
 
     public function index()
@@ -33,9 +34,18 @@ class Snap extends CI_Controller {
     	$this->load->view('checkout_snap');
     }
 
+    public function viewKeranjang()
+    {
+        $data['midtrans'] = $this->db->get('transaksi_midtrans')->result();
+        $data['content'] = 'user/keranjang';
+    	$this->load->view('layout_user', $data);
+    }
+
     public function token()
     {
 		$total = $this->input->post('total');
+		$nama = $this->input->post('nama');
+		$no_hp = $this->input->post('no_hp');
 		// Required
 		$transaction_details = array(
 		  'order_id' => rand(),
@@ -43,23 +53,23 @@ class Snap extends CI_Controller {
 		);
 
 		// Optional
-		$item1_details = array(
-		  'id' => 'a1',
-		  'price' => 18000,
-		  'quantity' => 3,
-		  'name' => "Apple"
-		);
+		// $item1_details = array(
+		//   'id' => 'a1',
+		//   'price' => 18000,
+		//   'quantity' => 3,
+		//   'name' => "Apple"
+		// );
 
 		// Optional
-		$item2_details = array(
-		  'id' => 'a2',
-		  'price' => 20000,
-		  'quantity' => 2,
-		  'name' => "Orange"
-		);
+		// $item2_details = array(
+		//   'id' => 'a2',
+		//   'price' => 20000,
+		//   'quantity' => 2,
+		//   'name' => "Orange"
+		// );
 
 		// Optional
-		$item_details = array ($item1_details, $item2_details);
+		// $item_details = array ($item1_details, $item2_details);
 
 		// Optional
 		$billing_address = array(
@@ -85,12 +95,10 @@ class Snap extends CI_Controller {
 
 		// Optional
 		$customer_details = array(
-		  'first_name'    => "Andri",
-		  'last_name'     => "Litani",
-		  'email'         => "andri@litani.com",
-		  'phone'         => "081122334455",
-		  'billing_address'  => $billing_address,
-		  'shipping_address' => $shipping_address
+		  'first_name'    => $nama,
+		  'phone'         => $no_hp,
+		//   'billing_address'  => $billing_address,
+		//   'shipping_address' => $shipping_address
 		);
 
 		// Data yang akan dikirim untuk request redirect_url.
@@ -107,7 +115,7 @@ class Snap extends CI_Controller {
         
         $transaction_data = array(
             'transaction_details'=> $transaction_details,
-            'item_details'       => $item_details,
+            // 'item_details'       => $item_details,
             'customer_details'   => $customer_details,
             'credit_card'        => $credit_card,
             'expiry'             => $custom_expiry
@@ -121,10 +129,28 @@ class Snap extends CI_Controller {
 
     public function finish()
     {
-    	$result = json_decode($this->input->post('result_data'));
+    	$result = json_decode($this->input->post('result_data'), true);
     	echo 'RESULT <br><pre>';
     	var_dump($result);
     	echo '</pre>' ;
+
+        $data = [
+            'status_code' => $result['status_code'],
+            'status_message' => $result['status_message'],
+            'transaction_id' => $result['transaction_id'],
+            'order_id' => $result['order_id'],
+            'gross_amount' => $result['gross_amount'],
+            'payment_type' => $result['payment_type'],
+            'transaction_time' => $result['transaction_time'],
+            'transaction_status' => $result['transaction_status'],
+            'fraud_status' => $result['fraud_status'],
+            'bank' => $result['va_numbers'][0]['bank'],
+            'va_number' => $result['va_numbers'][0]['va_number'],
+            'pdf_url' => $result['pdf_url'],
+            'finish_redirect_url' => $result['finish_redirect_url'],
+        ];
+
+        return $this->OrderModel->insertMidtrans($data);
 
     }
 }

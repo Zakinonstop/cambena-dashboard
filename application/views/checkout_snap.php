@@ -16,7 +16,7 @@
     
     <button id="pay-button">Pay!</button>
     <script type="text/javascript">
-  
+        
     $('#pay-button').click(function (event) {
         event.preventDefault();
         $(this).attr("disabled", "disabled");

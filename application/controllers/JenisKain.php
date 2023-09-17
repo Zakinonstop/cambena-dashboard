@@ -21,7 +21,6 @@ class JenisKain extends CI_Controller {
 		$this->load->view('layout_admin', $data);
 	}
 
-    
     function getJenisKain()
     {
         $output = $this->JenisKainModel->getJenisKain();

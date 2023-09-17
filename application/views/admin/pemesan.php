@@ -298,3 +298,7 @@
     }
 
 </script>
+
+<?php 
+    $this->load->view('admin/pesanan');
+?>

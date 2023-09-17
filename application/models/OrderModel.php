@@ -12,6 +12,7 @@ class OrderModel extends CI_Model
 
     function getOrderById($id_pemesan)
     {
+        $this->db->join('pemesan', 'pemesan.id = pesanan.id_pemesan');
         return $this->db->get_where($this->table, ['id_pemesan' => $id_pemesan]);    
     }
     function totalHarga($id_pemesan)
@@ -51,6 +52,11 @@ class OrderModel extends CI_Model
     function create($data)
     {
         return $this->db->insert($this->table, $data);    
+    }
+
+    function insertMidtrans($data)
+    {
+        return $this->db->insert('transaksi_midtrans', $data);    
     }
 
     // function getOrderById($id)

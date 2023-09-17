@@ -9,9 +9,9 @@ class Order extends CI_Controller {
     {
         parent::__construct();
         $this->load->model('OrderModel');
-        // if (isset($_SESSION['username'])) { } else {
-        //     redirect('start');
-        // }
+        if (!isset($_SESSION['username'])) { 
+            redirect('login');
+        }
     }
 
 	public function index()

@@ -69,4 +69,7 @@ $route['register'] = 'Auth/register';
 $route['login'] = 'Auth/login';
 $route['logout'] = 'Auth/logout';
 
+$route['keranjang'] = 'Snap/viewKeranjang';
+$route['master-barang'] = 'MasterBarang/index';
+
 

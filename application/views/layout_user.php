@@ -156,6 +156,12 @@
                 <div data-i18n="Analytics">Order</div>
               </a>
             </li>
+            <li class="menu-item">
+              <a href="<?= base_url('keranjang')?>" class="menu-link">
+                <i class="menu-icon tf-icons bx bx-home-circle"></i>
+                <div data-i18n="Analytics">Keranjang</div>
+              </a>
+            </li>
           </ul>
         </aside>
         <!-- / Menu -->

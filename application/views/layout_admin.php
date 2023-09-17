@@ -150,21 +150,21 @@
 
           <ul class="menu-inner py-1">
             <!-- Dashboard -->
-            <li class="menu-item">
+            <!-- <li class="menu-item">
               <a href="<?= base_url('dashboard')?>" class="menu-link">
                 <i class="menu-icon tf-icons bx bx-home-circle"></i>
                 <div data-i18n="Analytics">Dashboard</div>
               </a>
-            </li>
+            </li> -->
 
             <li class="menu-item">
-              <a href="<?= base_url('profil')?>" class="menu-link">
+              <a href="<?= base_url('master-barang')?>" class="menu-link">
                 <i class="menu-icon tf-icons bx bx-home-circle"></i>
-                <div data-i18n="Analytics">Profil</div>
+                <div data-i18n="Analytics">Master Data Barang</div>
               </a>
             </li>
 
-            <li class="menu-item">
+            <!-- <li class="menu-item">
               <a href="<?= base_url('jenisKain')?>" class="menu-link">
                 <i class="menu-icon tf-icons bx bx-home-circle"></i>
                 <div data-i18n="Analytics">Jenis Kain</div>
@@ -204,21 +204,21 @@
                 <i class="menu-icon tf-icons bx bx-home-circle"></i>
                 <div data-i18n="Analytics">Keterangan</div>
               </a>
-            </li>
+            </li> -->
 
             <li class="menu-item">
               <a href="<?= base_url('pemesan')?>" class="menu-link">
                 <i class="menu-icon tf-icons bx bx-home-circle"></i>
-                <div data-i18n="Analytics">Pemesan</div>
+                <div data-i18n="Analytics">Pemesan & Pesanan</div>
               </a>
             </li>
 
-            <li class="menu-item">
+            <!-- <li class="menu-item">
               <a href="<?= base_url('pesanan')?>" class="menu-link">
                 <i class="menu-icon tf-icons bx bx-home-circle"></i>
                 <div data-i18n="Analytics">Pesanan</div>
               </a>
-            </li>
+            </li> -->
 
           </ul>
         </aside>
@@ -294,7 +294,7 @@
                       <div class="dropdown-divider"></div>
                     </li>
                     <li>
-                      <a class="dropdown-item" href="#">
+                      <a class="dropdown-item" href="<?= base_url('profil')?>">
                         <i class="bx bx-user me-2"></i>
                         <span class="align-middle">My Profile</span>
                       </a>
