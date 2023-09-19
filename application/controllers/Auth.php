@@ -29,7 +29,7 @@ class Auth extends CI_Controller {
     function logout()
     {
         $this->session->sess_destroy();
-        return redirect('login');    
+        return redirect('');    
     }
     
     function postLogin()
