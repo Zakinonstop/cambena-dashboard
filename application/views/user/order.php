@@ -89,7 +89,7 @@
                 <small class="text-light fw-semibold">Berat</small> 
                 <div class="mb-3"> 
                     <div class="input-group input-group-merge">
-                        <input type="text" class="form-control" name="berat" id="berat" value="1000">
+                        <input type="text" class="form-control" name="berat" id="berat" >
                     </div>
                 </div>
                 
@@ -118,7 +118,7 @@
     
         </div>
     </div>
-    <div class="col-md-6">
+    <div <?php echo ($list_order) ? ''  : 'hidden' ;?> class="col-md-6">
         <div class="card mb-4">
         <h5 class="card-header">Keranjang</h5>
     

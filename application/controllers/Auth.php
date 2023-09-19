@@ -21,6 +21,19 @@ class Auth extends CI_Controller {
         $this->load->view('register');    
     }
 
+    function postRegister()
+    {
+        $data = [
+            'email' => $this->input->post('email'),
+            'password' => $this->input->post('password'),
+        ];
+
+        $action = $this->AuthModel->postRegister($data);
+        if ($action) {
+            return redirect('login');
+        }
+    }
+
     function login()
     {
         $this->load->view('login');    

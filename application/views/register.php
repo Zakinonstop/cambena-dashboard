@@ -136,7 +136,7 @@
                 </a>
               </div>
 
-              <form id="formAuthentication" class="mb-3" method="POST">
+              <form id="formAuthentication" method="POST" action="<?= base_url('postRegister')?>" class="mb-3" method="POST">
                 <!-- <div class="mb-3">
                   <label for="username" class="form-label">Username</label>
                   <input type="text" class="form-control" id="username" name="username" placeholder="Enter your username" autofocus />

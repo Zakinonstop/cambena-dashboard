@@ -14,6 +14,11 @@ class AuthModel extends CI_Model
     {
         return $this->db->get_where($this->table, ['email' => $email, 'password' => $password]);
     }
+
+    function postRegister($data)
+    {
+        return $this->db->insert($this->table, $data);
+    }
 	public function getAuth()
 	{
         $this->db->join('pemesan', 'pemesan.id = pemesan.id_pemesan');

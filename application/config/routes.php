@@ -66,6 +66,7 @@ $route['api/getOngkir'] = 'Order/getOngkir';
 $route['api/login'] = 'Auth/postLogin';
 
 $route['register'] = 'Auth/register';
+$route['postRegister'] = 'Auth/postRegister';
 $route['login'] = 'Auth/login';
 $route['logout'] = 'Auth/logout';
 
