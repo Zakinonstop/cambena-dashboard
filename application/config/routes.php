@@ -64,10 +64,13 @@ $route['api/getKota'] = 'Order/getKota';
 $route['api/getOngkir'] = 'Order/getOngkir';
 
 $route['api/login'] = 'Auth/postLogin';
+$route['api/login-admin'] = 'Auth/postLoginAdmin';
 
 $route['register'] = 'Auth/register';
 $route['postRegister'] = 'Auth/postRegister';
 $route['login'] = 'Auth/login';
+$route['login-admin'] = 'Auth/loginAdmin';
+$route['admin'] = 'Auth/loginAdmin';
 $route['logout'] = 'Auth/logout';
 
 $route['keranjang'] = 'Snap/viewKeranjang';

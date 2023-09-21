@@ -10,9 +10,9 @@
     <div class="row card-body">
         <div class="col-12">
             <!-- Button trigger modal -->
-            <button type="button" class="btn btn-primary" onclick="showFormAddpesanan()" data-bs-toggle="modal">
+            <!-- <button type="button" class="btn btn-primary" onclick="showFormAddpesanan()" data-bs-toggle="modal">
                 Tambah pesanan
-            </button>
+            </button> -->
         </div>
         <div class="col-lg-12 table-responsive mt-4">
             <table id="pesananTable" class="table table-striped display" style="width:100%">
