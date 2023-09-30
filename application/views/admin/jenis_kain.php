@@ -31,7 +31,7 @@
                             <td class="td-center"><?= $no++ ?></td>
                             <td><?= $value->nama ?></td>
                             <td class="text-center">
-                                <button class="btn btn-danger btn-sm" onclick="remove(<?= $value->id ?>)">Hapus</button>
+                                <button class="btn btn-danger btn-sm" onclick="removeJenisKain(<?= $value->id ?>)">Hapus</button>
                                 <button class="btn btn-warning btn-sm" onclick="showFormEditjenisKain(<?= $value->id ?>)">Edit</button>
                             </td>
                         </tr>
@@ -68,8 +68,8 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-submit btn-primary" onclick="create()" style="display: none">Simpan</button>
-                    <button type="button" class="btn btn-primary btn-update me-2" onclick="update()" style="display: none">Update</button>
+                    <button type="button" class="btn btn-submit btn-primary" onclick="createJenisKain()" style="display: none">Simpan</button>
+                    <button type="button" class="btn btn-primary btn-update me-2" onclick="updateJenisKain()" style="display: none">Update</button>
                 </div>
             </div>
             </div>
@@ -182,7 +182,8 @@
         });
     }
 
-    function create() {
+    function createJenisKain() {
+        
         event.preventDefault();
         var formData = new FormData($('#formjenisKain')[0]);
 
@@ -231,7 +232,7 @@
         });
     }
 
-    function update() {
+    function updateJenisKain() {
         var formData = new FormData($('#formjenisKain')[0]);
         
         $.ajax({
@@ -254,7 +255,7 @@
         });
     }
 
-    function remove(id) {
+    function removeJenisKain(id) {
         Swal.fire({
           title: 'Apakah Anda Yakin?',
           text: "Data tidak dapat dikembalikan!",

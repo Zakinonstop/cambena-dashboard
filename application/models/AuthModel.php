@@ -14,6 +14,11 @@ class AuthModel extends CI_Model
     {
         return $this->db->get_where($this->table, ['email' => $email, 'password' => $password]);
     }
+ 
+    function postLoginAdmin($email, $password)
+    {
+        return $this->db->get_where('admin', ['email' => $email, 'password' => $password]);
+    }
 
     function postRegister($data)
     {

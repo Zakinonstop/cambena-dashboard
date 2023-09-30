@@ -68,15 +68,14 @@ class Auth extends CI_Controller {
             $this->session->set_userdata($userdata);
             return redirect('order');  
         }
-        return redirect();  
+        return redirect('login');  
     }
     function postLoginAdmin()
     {
         $email = $this->input->post('email');
         $password = $this->input->post('password');
-        $cek = $this->AuthModel->postLogin($email, $password);
-        // var_dump($username);
-        // die;
+        $cek = $this->AuthModel->postLoginAdmin($email, $password);
+        
         if ($cek->num_rows() > 0) {
             $username = $cek->row()->nama;
             $id = $cek->row()->id;
@@ -89,6 +88,6 @@ class Auth extends CI_Controller {
             $this->session->set_userdata($userdata);
             return redirect('master-barang');  
         }
-        return redirect();  
+        return redirect('login-admin');  
     }
 }
