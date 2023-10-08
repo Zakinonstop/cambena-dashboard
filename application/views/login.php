@@ -153,7 +153,7 @@
 
               <p class="text-center">
                 <span>Belum mempunyai akun?</span>
-                <a href="auth-login-basic.html">
+                <a href="<?= base_url('register')?>">
                   <span>Daftar</span>
                 </a>
               </p>

@@ -24,7 +24,10 @@ class Auth extends CI_Controller {
     function postRegister()
     {
         $data = [
+            'nama' => $this->input->post('nama'),
+            'alamat' => $this->input->post('alamat'),
             'email' => $this->input->post('email'),
+            'no_hp' => $this->input->post('no_hp'),
             'password' => $this->input->post('password'),
         ];
 

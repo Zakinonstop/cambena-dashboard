@@ -142,8 +142,20 @@
                   <input type="text" class="form-control" id="username" name="username" placeholder="Enter your username" autofocus />
                 </div> -->
                 <div class="mb-3">
-                  <label for="email" class="form-label">Email</label>
-                  <input type="text" class="form-control" id="email" name="email" placeholder="Enter your email" />
+                  <label for="nama" class="form-label">Nama</label>
+                  <input type="text" class="form-control" id="nama" name="nama" placeholder="Enter your nama" />
+                </div>
+                <div class="mb-3">
+                  <label for="alamat" class="form-label">alamat</label>
+                  <textarea type="textarea" class="form-control" id="alamat" name="alamat" placeholder="Enter your alamat" ></textarea>
+                </div>
+                <div class="mb-3">
+                    <label for="email" class="form-label">Email</label>
+                    <input type="text" class="form-control" id="email" name="email" placeholder="Enter your email" />
+                </div>
+                <div class="mb-3">
+                  <label for="no_hp" class="form-label">No. Handphone</label>
+                  <input type="number" class="form-control" id="no_hp" name="no_hp" placeholder="Enter your no_hp" />
                 </div>
                 <div class="mb-3 form-password-toggle">
                   <label class="form-label" for="password">Password</label>
@@ -157,7 +169,7 @@
 
               <p class="text-center">
                 <span>Sudah mempunyai akun?</span>
-                <a href="auth-login-basic.html">
+                <a href="<?= base_url('login')?>">
                   <span>Masuk</span>
                 </a>
               </p>
