@@ -163,6 +163,11 @@
                     <input type="password" id="password" class="form-control" name="password" placeholder="&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;" aria-describedby="password" />
                     <span class="input-group-text cursor-pointer"><i class="bx bx-hide"></i></span>
                   </div>
+                  <div>
+                    <p><?php if ($this->session->flashdata('error')) {
+                        echo $this->session->flashdata('error');
+                    }?></p>
+                  </div>
                 </div>
                 <button class="btn btn-primary d-grid w-100 mt-4" onclick="daftar()">Daftar</button>
               </form>

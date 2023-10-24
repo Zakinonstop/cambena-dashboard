@@ -10,9 +10,9 @@ class AuthModel extends CI_Model
     // protected $table_fk = 'kategori';
     // protected $table_fk_id = 'id_kategori';
 
-    function postLogin($email, $password)
+    function postLogin($email)
     {
-        return $this->db->get_where($this->table, ['email' => $email, 'password' => $password]);
+        return $this->db->get_where($this->table, ['email' => $email]);
     }
  
     function postLoginAdmin($email, $password)
